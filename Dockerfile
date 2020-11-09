@@ -4,8 +4,7 @@ FROM    node:4.5
 ENV     VERSION=master
 WORKDIR /usr/src/ylt
 
-RUN     npm install -g npm@latest \
-        && npm install -g node-gyp \
+RUN     npm install -g node-gyp \
         && npm install -g grunt-cli \
         && git clone https://github.com/gmetais/YellowLabTools.git -b ${VERSION} . \
         && npm install \
