@@ -45,7 +45,7 @@ USER nobody
 ENV PHANTOMAS_CHROMIUM_EXECUTABLE /usr/bin/chromium-browser
 ENV DOCKERIZED yes
 
-ENV DEBUG *
+#ENV DEBUG *
 
 EXPOSE  8383
 
