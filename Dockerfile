@@ -1,7 +1,7 @@
 FROM    node:14-alpine
 
 # last commit=v1.12.0
-ENV     VERSION=develop 
+ENV     VERSION=develop  
 ENV     CHROMIUM_VERSION 86.0.4240.111-r0
 
 
