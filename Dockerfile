@@ -1,7 +1,7 @@
 FROM    node:14-alpine
 
 # last commit=v1.12.0
-ENV     VERSION=develop  
+ENV     VERSION=ylt-v2  
 ENV     CHROMIUM_VERSION 86.0.4240.111-r0
 
 
@@ -23,10 +23,13 @@ RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/main" > /etc/apk/repositorie
     freetype-dev \
     harfbuzz \
     nss \
-    ttf-freefont \
-  && which chromium-browser \
-  && chromium-browser --no-sandbox --version
-  
+    ttf-freefont
+
+
+
+RUN which chromium-browser
+RUN chromium-browser --no-sandbox --version
+
 
 # Tell Puppeteer to skip installing Chrome. We'll be using the installed binary
 ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD true
@@ -42,7 +45,7 @@ USER nobody
 ENV PHANTOMAS_CHROMIUM_EXECUTABLE /usr/bin/chromium-browser
 ENV DOCKERIZED yes
 
-#ENV DEBUG *
+ENV DEBUG *
 
 EXPOSE  8383
 
