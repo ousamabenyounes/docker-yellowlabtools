@@ -1,7 +1,7 @@
 FROM    node:14-alpine
 
 # last commit=v1.12.0
-ENV     VERSION=ylt-v2  
+ENV     VERSION=develop 
 ENV     CHROMIUM_VERSION 86.0.4240.111-r0
 
 
@@ -45,7 +45,7 @@ USER nobody
 ENV PHANTOMAS_CHROMIUM_EXECUTABLE /usr/bin/chromium-browser
 ENV DOCKERIZED yes
 
-ENV DEBUG *
+#ENV DEBUG *
 
 EXPOSE  8383
 
