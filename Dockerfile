@@ -23,13 +23,10 @@ RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/main" > /etc/apk/repositorie
     freetype-dev \
     harfbuzz \
     nss \
-    ttf-freefont
-
-
-
-RUN which chromium-browser
-RUN chromium-browser --no-sandbox --version
-
+    ttf-freefont \
+  && which chromium-browser \
+  && chromium-browser --no-sandbox --version
+  
 
 # Tell Puppeteer to skip installing Chrome. We'll be using the installed binary
 ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD true
