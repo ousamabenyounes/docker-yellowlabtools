@@ -1,5 +1,5 @@
-# Yellow lab tools V2 Docker Image (with Chromium)
-YellowLabTools is an open source project developed by Gael Metais  
+# The official Yellow Lab Tools v2 image
+[`YellowLabTools`](https://github.com/YellowLabTools/YellowLabTools) is an open source project developed by Gael Metais  
 Analyzes a webpage and detects **performance** or **front-end code quality** issues. Free, easy to launch, easy to understand, in-depth details.  
 With this docker image, you can run your own YellowLabTools Instance  
 This version is based on Chromium Web Browser  
