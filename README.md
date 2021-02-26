@@ -13,4 +13,5 @@ And then open [`http://localhost:8383/`](http://localhost:8383/) on your web bro
 
 
 # Contributors
+- Gaël Métais [gmetais](https://github.com/gmetais)
 - Bruno Alimelie [baconsulting](https://github.com/baconsulting)
