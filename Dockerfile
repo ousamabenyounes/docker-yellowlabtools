@@ -12,10 +12,11 @@ RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/main" > /etc/apk/repositorie
   && echo "http://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories \
   && echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories \
   && echo "http://dl-cdn.alpinelinux.org/alpine/v3.12/main" >> /etc/apk/repositories \
-  && apk upgrade -U -a \
-  && apk add \
-    build-base \
-    python3 py3-pip \
+  && apk upgrade -U -a 
+  
+RUN apk add build-base 
+RUN apk add python3 
+RUN apk add py3-pip \
     libjpeg-turbo-dev \
     chromium \
     ca-certificates \
