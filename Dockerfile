@@ -14,6 +14,8 @@ RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/main" > /etc/apk/repositorie
   && echo "http://dl-cdn.alpinelinux.org/alpine/v3.12/main" >> /etc/apk/repositories \
   && apk upgrade -U -a \
   && apk add \
+    build-base \
+    python3 py3-pip \
     libjpeg-turbo-dev \
     chromium \
     ca-certificates \
