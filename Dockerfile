@@ -20,8 +20,7 @@ RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/main" > /etc/apk/repositorie
     freetype-dev \
     harfbuzz \
     nss \
-    ttf-freefont \
-  && apk cache clean
+    ttf-freefont 
     
 RUN     git clone https://github.com/gmetais/YellowLabTools.git -b ${VERSION} . \
   && git checkout e9ab1fd \
