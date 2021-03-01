@@ -24,7 +24,7 @@ RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/main" > /etc/apk/repositorie
     
 RUN     git clone https://github.com/gmetais/YellowLabTools.git -b ${VERSION} . \
   && git checkout e9ab1fd \
-  && NODE_ENV=development && npm install --only=prod
+  && chmod -R 777 . && NODE_ENV=development && npm install --only=prod
 
 RUN which chromium-browser \
 && chromium-browser --no-sandbox --version \
