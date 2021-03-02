@@ -17,6 +17,12 @@ docker run -d --privileged -p 8383:8383 ousamabenyounes/yellowlabtools
 And then open [`http://localhost:8383/`](http://localhost:8383/) on your web browser.  
 
 
+If you need to run your instance in Debug mode
+
+```
+ docker run  --privileged --env DEBUG=* -p 8383:8383 ousamabenyounes/yellowlabtools
+```
+
 # Contributors
 - Gaël Métais [gmetais](https://github.com/gmetais)
 - Bruno Alimelie [baconsulting](https://github.com/baconsulting)
