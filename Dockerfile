@@ -7,9 +7,10 @@ ENV     CHROMIUM_VERSION 86.0.4240.111-r0
 
 WORKDIR /usr/src/ylt
 
-RUN     apk upgrade --update && apk --no-cache add git gcc make g++ zlib-dev libjpeg-turbo-dev nasm \
+RUN     apk upgrade --update && apk --no-cache add git gcc make g++ zlib-dev libjpeg-turbo-dev nasm automake autoconf libtool \
   && git clone https://github.com/gmetais/YellowLabTools.git -b ${VERSION} . \
   && git checkout e9ab1fd \
+  && npm install jpegoptim-bin --unsafe-perm=true --allow-root \
   && NODE_ENV=development && npm install --only=prod \
   && echo "http://dl-cdn.alpinelinux.org/alpine/edge/main" > /etc/apk/repositories \
   && echo "http://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories \
