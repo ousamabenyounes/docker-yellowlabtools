@@ -23,6 +23,10 @@ If you need to run your instance in Debug mode
  docker run  --privileged --env DEBUG=* -p 8383:8383 ousamabenyounes/yellowlabtools
 ```
 
+To test your local server on your computer you have to do this:  
+
+replace http://localhost:8080/ by http://host.docker.internal:8080/
+
 # Contributors
 - Gaël Métais [gmetais](https://github.com/gmetais)
 - Bruno Alimelie [baconsulting](https://github.com/baconsulting)
