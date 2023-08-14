@@ -4,6 +4,8 @@ FROM    node:14-alpine
 ENV     VERSION=develop
 ENV     CHROMIUM_VERSION 86.0.4240.111-r0
 
+# Add the volume for results
+VOLUME /usr/src/ylt/results
 
 WORKDIR /usr/src/ylt
 
