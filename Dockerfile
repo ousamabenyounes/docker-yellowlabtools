@@ -10,7 +10,6 @@ RUN apk upgrade --update && apk --no-cache add git gcc make g++ zlib-dev libjpeg
   && echo "http://dl-cdn.alpinelinux.org/alpine/edge/main" > /etc/apk/repositories \
   && echo "http://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories \
   && echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories \
-  && echo "http://dl-cdn.alpinelinux.org/alpine/v3.12/main" >> /etc/apk/repositories \
   && apk upgrade -U -a \
   && apk add \
     libjpeg-turbo-dev \
