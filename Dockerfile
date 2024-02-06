@@ -1,19 +1,12 @@
-FROM    node:14-alpine
+FROM    node:18-alpine
 
-# last commit=v1.12.0
-ENV     VERSION=develop
-ENV     CHROMIUM_VERSION 86.0.4240.111-r0
-
-# Add the volume for results
-VOLUME /usr/src/ylt/results
+ENV VERSION=develop
 
 WORKDIR /usr/src/ylt
 
-RUN     apk upgrade --update && apk --no-cache add git gcc make g++ zlib-dev libjpeg-turbo-dev nasm automake autoconf libtool \
-  && git clone https://github.com/gmetais/YellowLabTools.git -b ${VERSION} . \
-  && git checkout e9ab1fd \
-  && npm install jpegoptim-bin --unsafe-perm=true --allow-root \
-  && NODE_ENV=development && npm install --only=prod \
+RUN apk upgrade --update && apk --no-cache add git gcc make g++ zlib-dev libjpeg-turbo-dev nasm automake autoconf libtool \
+  && git clone https://github.com/YellowLabTools/YellowLabTools-server.git -b ${VERSION} . \
+  &&  NODE_ENV=development && npm install jpegoptim-bin --unsafe-perm=true --allow-root --legacy-peer-deps --omit=dev \
   && echo "http://dl-cdn.alpinelinux.org/alpine/edge/main" > /etc/apk/repositories \
   && echo "http://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories \
   && echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories \
@@ -28,25 +21,30 @@ RUN     apk upgrade --update && apk --no-cache add git gcc make g++ zlib-dev lib
     harfbuzz \
     nss \
     ttf-freefont \
-  && which chromium-browser && chromium-browser --no-sandbox --version &&  chown -R nobody:nogroup . \
+  && which chromium-browser && chromium-browser --version &&  chown -R nobody:nogroup . \
   && rm -rf test doc
 
+# Create the results directory and assign nobody:nogroup as the owner
+RUN mkdir -p /usr/src/ylt/results && chown -R nobody:nogroup /usr/src/ylt/results
 
+# Add the volume for results
+VOLUME /usr/src/ylt/results
 
 # Tell Puppeteer to skip installing Chrome. We'll be using the installed binary
 ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD true
 
-
-
 # Run everything after as non-privileged user.
 USER nobody
 
+# Set up the Chromium environment
+ENV XDG_CONFIG_HOME /tmp/.chromium
+ENV XDG_CACHE_HOME /tmp/.chromium
 
 # Tell phantomas where Chromium binary is and that we're in docker
 ENV PHANTOMAS_CHROMIUM_EXECUTABLE /usr/bin/chromium-browser
 ENV DOCKERIZED yes
 
-#ENV DEBUG *
+# ENV DEBUG *
 
 EXPOSE  8383
 
