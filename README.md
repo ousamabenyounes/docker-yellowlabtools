@@ -31,3 +31,4 @@ replace http://localhost:8080/ by http://host.docker.internal:8080/
 - Gaël Métais [gmetais](https://github.com/gmetais)
 - Bruno Alimelie [baconsulting](https://github.com/baconsulting)
 - Alexandre Painchaud [painchaudAlexandre](https://github.com/painchaudAlexandre)
+- kevinfarrugia [kevinfarrugia](https://github.com/kevinfarrugia)
