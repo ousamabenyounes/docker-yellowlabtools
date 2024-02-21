@@ -1,6 +1,6 @@
 # This worksflow builds the Docker image as part of the CI process
 
-name: Docker Image CI
+name: Build
 
 on:
   push:
