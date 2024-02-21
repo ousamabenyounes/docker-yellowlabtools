@@ -1,4 +1,4 @@
-# The official Yellow Lab Tools v2 image
+# The official Yellow Lab Tools v3 image
 [`Yellow Lab Tools`](https://github.com/YellowLabTools/YellowLabTools) is an open source project developed by Gaël Métais.
 It analyzes a webpage and detects **performance** or **front-end code quality** issues. Free, easy to launch, easy to understand, in-depth details. With this docker image, you can run your own YellowLabTools instance.
 This image will be updated continuously.
@@ -31,4 +31,4 @@ replace http://localhost:8080/ by http://host.docker.internal:8080/
 - Gaël Métais [gmetais](https://github.com/gmetais)
 - Bruno Alimelie [baconsulting](https://github.com/baconsulting)
 - Alexandre Painchaud [painchaudAlexandre](https://github.com/painchaudAlexandre)
-- kevinfarrugia [kevinfarrugia](https://github.com/kevinfarrugia)
+- Kevin Farrugia [kevinfarrugia](https://github.com/kevinfarrugia)
