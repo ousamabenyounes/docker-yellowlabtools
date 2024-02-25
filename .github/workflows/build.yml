@@ -1,0 +1,21 @@
+# This worksflow builds the Docker image as part of the CI process
+
+name: Build
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout the repository
+      uses: actions/checkout@v4
+    
+    - name: Build the Docker image
+      run: docker build . --tag yellowlabtools:$(date +%s)
