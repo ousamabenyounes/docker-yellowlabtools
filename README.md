@@ -1,31 +1,52 @@
 # The official Yellow Lab Tools v3 image
-[`Yellow Lab Tools`](https://github.com/YellowLabTools/YellowLabTools) is an open source project developed by Gaël Métais.
+
+[`Yellow Lab Tools`](https://github.com/YellowLabTools/YellowLabTools) is an open-source project developed by Gaël Métais.
+
 It analyzes a webpage and detects **performance** or **front-end code quality** issues. Free, easy to launch, easy to understand, in-depth details. With this docker image, you can run your own YellowLabTools instance.
+
 This image will be updated continuously.
 
+## Usage
 
-# Usage
-```
+```sh
 docker run --privileged -p 8383:8383 ousamabenyounes/yellowlabtools 
 ```
-or if you prefer to run it in detached mode adding -d option  
 
-```
+or if you prefer to run it in detached mode add the `-d` option:
+
+```sh
 docker run -d --privileged -p 8383:8383 ousamabenyounes/yellowlabtools 
 ```
 
 And then open [`http://localhost:8383/`](http://localhost:8383/) on your web browser.  
 
+## Debug
 
-If you need to run your instance in Debug mode
+If you need to run your instance in debug mode, add `'DEBUG=*` to the environment variables:
 
-```
+```sh
  docker run  --privileged --env 'DEBUG=*' -p 8383:8383 ousamabenyounes/yellowlabtools
 ```
 
-To test your local server on your computer you have to do this:  
+## Development
 
-replace http://localhost:8080/ by http://host.docker.internal:8080/
+You can connect to your fork of YellowLabTools by changing the GitHub repository in the `Dockerfile` and rebuilding the image.
+
+**Dockerfile:**
+```diff
+-  && git clone https://github.com/YellowLabTools/YellowLabTools-server.git -b ${VERSION} . \
++  && git clone https://github.com/kevinfarrugia/YellowLabTools-server.git -b ${VERSION} . \
+```
+
+**Build:**
+```sh
+docker build -t yellowlabtools .
+```
+
+**Run:**
+```sh
+docker run --privileged -p 8383:8383 yellowlabtools
+```
 
 # Contributors
 - Gaël Métais [gmetais](https://github.com/gmetais)
