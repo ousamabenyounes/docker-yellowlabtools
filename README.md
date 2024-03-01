@@ -9,7 +9,7 @@ This image will be updated continuously.
 ## Usage
 
 ```sh
-docker run --privileged -p 8383:8383 ousamabenyounes/yellowlabtools 
+docker run -it --privileged -p 8383:8383 ousamabenyounes/yellowlabtools 
 ```
 
 or if you prefer to run it in detached mode add the `-d` option:
