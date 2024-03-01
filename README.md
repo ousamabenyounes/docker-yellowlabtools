@@ -9,7 +9,7 @@ This image will be updated continuously.
 ## Usage
 
 ```sh
-docker run --privileged -p 8383:8383 ousamabenyounes/yellowlabtools 
+docker run -it --privileged -p 8383:8383 ousamabenyounes/yellowlabtools 
 ```
 
 or if you prefer to run it in detached mode add the `-d` option:
@@ -19,6 +19,15 @@ docker run -d --privileged -p 8383:8383 ousamabenyounes/yellowlabtools
 ```
 
 And then open [`http://localhost:8383/`](http://localhost:8383/) on your web browser.  
+
+### localhost
+
+If you would like to run tests against a website that is only available on the host network, for example, `localhost`, then you need to run the Docker image using the `--network=host` flag.
+
+```diff
+- docker run -it --privileged -p 8383:8383 ousamabenyounes/yellowlabtools
++ docker run -it --privileged --network host -p 8383:8383 ousamabenyounes/yellowlabtools 
+```
 
 ## Debug
 
