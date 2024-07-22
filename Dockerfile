@@ -26,6 +26,9 @@ RUN apk upgrade --update && apk --no-cache add git gcc make g++ zlib-dev libjpeg
 # Create the results directory and assign nobody:nogroup as the owner
 RUN mkdir -p /usr/src/ylt/results && chown -R nobody:nogroup /usr/src/ylt/results
 
+# Create the directory for the screenshots and assign nobody:nogroup as the owner
+RUN mkdir -p /usr/src/ylt/tmp && chown -R nobody:nogroup /usr/src/ylt/tmp
+
 # Add the volume for results
 VOLUME /usr/src/ylt/results
 
